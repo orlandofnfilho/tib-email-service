@@ -1,0 +1,32 @@
+CREATE OR ALTER PROCEDURE INS_EMAIL 
+(
+    @REMETENTE NVARCHAR(255),
+    @DESTINATARIO NVARCHAR(255) = NULL,
+    @CONTEUDO NVARCHAR(MAX) = NULL,
+    @DATA_ENVIO DATETIME = NULL, 
+    @ERRO NVARCHAR(255) = NULL
+)
+AS
+BEGIN
+    -- Verifica se o remetente é NULL
+    IF @REMETENTE IS NULL
+    BEGIN
+        RAISERROR('O remetente não pode ser NULL.', 16, 1);
+        RETURN; -- Encerra a execução da procedure
+    END
+
+    BEGIN TRY
+        BEGIN TRANSACTION
+
+        INSERT INTO TB_EMAIL
+        (REMETENTE, DESTINATARIO, CONTEUDO, DATA_ENVIO, ERRO)
+        VALUES
+        (@REMETENTE, @DESTINATARIO, @CONTEUDO, @DATA_ENVIO, @ERRO)
+
+        COMMIT
+    END TRY
+    BEGIN CATCH
+        ROLLBACK
+        RAISERROR('Error ao salvar novo e-mail', 16, 1);
+    END CATCH
+END;
