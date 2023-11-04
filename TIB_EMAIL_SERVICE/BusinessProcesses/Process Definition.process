@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/TIB_EMAIL_SERVICE/SharedResources/Schemas/email-service.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/TIB_EMAIL_SERVICE/SharedResources/Schemas/email-service.xsd" schemaLocation="/SharedResources/Schemas/email-service.xsd"/>
+    <pd:name>BusinessProcesses/Process Definition.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="pfx:list-emails"/>
+    <pd:startX>151</pd:startX>
+    <pd:startY>63</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>450</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1699098918670</pd:targetNamespace>
+</pd:ProcessDefinition>
